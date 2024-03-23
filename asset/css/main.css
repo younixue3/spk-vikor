@@ -268,29 +268,29 @@ main {
 }
 
 .bg-primary {
-  background-color: #c7ff61;
+  background-color: #c7ff61 !important;
 }
 
 .bg-secondary {
-  background-color: #c7c7c7;
+  background-color: #c7c7c7 !important;
 }
 
 .bg-warning {
-  background-color: #ffed2b;
+  background-color: #ffed2b !important;
 }
 
 .bg-danger {
-  background-color: #ff3c1f;
+  background-color: #ff3c1f !important;
   color: white;
 }
 
 .bg-indigo {
-  background-color: #8d61ff;
+  background-color: #8d61ff !important;
   color: white;
 }
 
 .bg-info {
-  background-color: #4acaf1;
+  background-color: #4acaf1 !important;
   color: white;
 }
 

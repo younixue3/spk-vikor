@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login</title>
+  <link rel="stylesheet" type="text/css" href="asset/css/main.css"/>
+</head>
+<body>
+<div class="container h-100">
+  <header class="grid-cols-6 bg-primary">
+    <h2 class="col-1 text-center">Logo</h2>
+    <h3 class="col-5 text-center">
+      Sistem Pendukung Keputusan Pemilihan Karyawan Panen Kelapa Sawit Terbaik Menggunakan Metode VIKOR PT. Tritunggal
+      Sentra Buana (TSB) </h3>
+  </header>
+  <main>
+    <div class="sidebar">
+      <div class="grid-cols-2 profile-bar">
+        <img class="profile"/>
+        <div>
+          <label>Admin</label>
+          <span class="badge">Online</span>
+        </div>
+      </div>
+      <ul>
+        <li><a href="index.html">Beranda</a></li>
+        <li><a href="alternatif.html">Alternatif</a></li>
+        <li><a href="kriteria.html">Kriteria</a></li>
+        <li><a href="sub_kriteria.html">Sub Kriteria</a></li>
+        <li><a href="penilaian.html">Input Nilai</a></li>
+        <li><a href="perangkingan.html">Perangkingan</a></li>
+        <li><a href="login.html">Logout</a></li>
+      </ul>
+    </div>
+    <div class="content">
+      <section class="grid-cols-10 gap-1">
+        <h1 class="col-10">Daftar Kriteria</h1>
+        <button class="col-2 btn btn-indigo">
+          Tambah
+        </button>
+        <form class="col-3">
+          <label class="input-label">Search</label>
+          <input class="input-control" placeholder="search" />
+        </form>
+        <div class="card col-10">
+          <section class="card-body">
+            <table class="">
+              <thead>
+              <tr class="">
+                <th scope="col" style="width: 20px;">No</th>
+                <th scope="col">Kriteria</th>
+                <th scope="col">Bobot</th>
+                <th scope="col" style="width: 300px;">Action</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr class="">
+                <td class="">1</td>
+                <td class="">Kriteria 1</td>
+                <td class="">0.5</td>
+                <td class="">
+                  <button class="btn btn-warning">
+                    Edit
+                  </button>
+                  <button class="btn btn-danger">
+                    Delete
+                  </button>
+                </td>
+              </tr>
+              <tr class="">
+                <td class="">2</td>
+                <td class="">Kriteria 2</td>
+                <td class="">0.5</td>
+                <td class="">
+                  <button class="btn btn-warning">
+                    Edit
+                  </button>
+                  <button class="btn btn-danger">
+                    Delete
+                  </button>
+                </td>
+              </tr>
+              <tr class="">
+                <td class="">3</td>
+                <td class="">Kriteria 3</td>
+                <td class="">0.5</td>
+                <td class="">
+                  <button class="btn btn-warning">
+                    Edit
+                  </button>
+                  <button class="btn btn-danger">
+                    Delete
+                  </button>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </section>
+        </div>
+      </section>
+    </div>
+  </main>
+</div>
+</body>
+</html>

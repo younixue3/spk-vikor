@@ -12,10 +12,19 @@ body {
 
 /* The Modal (background) */
 .modal {
+  position: absolute;
   display: flex;
   z-index: 1;
   height: 100vh;
   width: 100vw;
+}
+
+.modal.fade {
+  visibility: hidden;
+}
+
+.modal.show {
+  visibility: visible;
 }
 
 /* Modal Content/Box */
@@ -59,6 +68,24 @@ body {
 .input-control:focus {
   outline: none;
   border-color: #c7ff61;
+}
+
+.flex {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.justify-beetwen {
+  justify-content: space-between;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-normal {
+  justify-content: normal;
 }
 
 .grid-cols {

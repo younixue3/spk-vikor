@@ -8,30 +8,9 @@
 </head>
 <body>
 <div class="container h-100">
-  <header class="grid-cols-6 bg-primary">
-    <h2 class="col-1 text-center">Logo</h2>
-    <h3 class="col-5 text-center">
-      Sistem Pendukung Keputusan Pemilihan Karyawan Panen Kelapa Sawit Terbaik Menggunakan Metode VIKOR PT. Tritunggal Sentra Buana (TSB)    </h3>
-  </header>
+    <?php include 'components/layout/banner.php' ?>
   <main>
-    <div class="sidebar">
-      <div class="grid-cols-2 profile-bar">
-        <img class="profile" />
-        <div>
-          <label>Admin</label>
-          <span class="badge">Online</span>
-        </div>
-      </div>
-      <ul>
-        <li><a href="index.html">Beranda</a></li>
-        <li><a href="alternatif.html">Alternatif</a></li>
-        <li><a href="kriteria.html">Kriteria</a></li>
-        <li><a href="sub_kriteria.html">Sub Kriteria</a></li>
-        <li><a href="penilaian.html">Input Nilai</a></li>
-        <li><a href="perangkingan.html">Perangkingan</a></li>
-        <li><a href="login.html">Logout</a></li>
-      </ul>
-    </div>
+      <?php include 'components/layout/header.php' ?>
     <div class="content">
       <section class="grid-cols-4 gap-1">
         <h1 class="col-4">Selamat datang di dashboard!</h1>

@@ -11,12 +11,24 @@ $stmt->execute();
 $Alternatif = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $nama_alternatif = $_POST["nama_alternatif"];
 
-    $sql = "INSERT INTO alternatif (nama_alternatif) VALUES (:nama_alternatif)";
+function add_leading_zero($value, $threshold = 3) {
+    return sprintf('%0' . $threshold . 's', $value);
+}
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $sql_last = "SELECT * FROM alternatif ORDER BY id DESC limit 1";
+    $stmt_last = $conn->query($sql_last);
+    $stmt_last->execute();
+    $lastalternatif = $stmt_last->fetch(PDO::FETCH_ASSOC);
+    $nama_alternatif = $_POST["nama_alternatif"];
+    $lastkode = "A:nama_alternatif";
+    $kode = "A".(add_leading_zero($lastalternatif['id'] ? $lastalternatif['id'] + 1 : 0));
+
+    $sql = "INSERT INTO alternatif (nama_alternatif, kode) VALUES (:nama_alternatif, :kode)";
     $stmt = $conn->prepare($sql);
     $stmt->bindParam(":nama_alternatif", $nama_alternatif);
+    $stmt->bindParam(":kode", $kode);
 
     if ($stmt->execute()) {
         header("Location: alternatif.php");
@@ -87,6 +99,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
               <thead>
               <tr class="">
                 <th scope="col" style="width: 20px;">No</th>
+                <th scope="col">Kode</th>
                 <th scope="col">Alternatif</th>
                 <th scope="col" style="width: 300px;">Action</th>
               </tr>
@@ -95,6 +108,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
               <?php foreach ($Alternatif as $item => $value) : ?>
                 <tr class="">
                   <td class=""><?= $value['id'] ?></td>
+                  <td class=""><?= $value['kode'] ?></td>
                   <td class=""><?= $value['nama_alternatif'] ?></td>
                   <td class="">
                     <a href="edit.php?id=<?= $value['id'] ?>" class="btn btn-warning">

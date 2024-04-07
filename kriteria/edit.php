@@ -15,7 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->bindParam(":id", $id);
 
     if ($stmt->execute()) {
-        header("Location: alternatif.php");
+        header("Location: kriteria.php");
         exit();
     } else {
         echo "Error: " . $conn->errorInfo()[0];

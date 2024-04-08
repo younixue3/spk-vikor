@@ -5,7 +5,7 @@ require_once('../connection.php');
 $search = isset($_GET["search"]) ? $_GET["search"] : "";
 
 
-$sql = "SELECT * FROM sub_kriteria WHERE nama_sub_kriteria LIKE '%$search%'";
+$sql = "SELECT sub_kriteria.id as id, nama_sub_kriteria, nama_kriteria, skala_nilai FROM sub_kriteria JOIN kriteria ON sub_kriteria.id_kriteria = kriteria.id WHERE nama_sub_kriteria LIKE '%$search%'";
 $stmt = $conn->prepare($sql);
 $stmt->execute();
 $sub_kriteria = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -45,7 +45,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   <link rel="stylesheet" type="text/css" href="../asset/css/main.css"/>
 </head>
 <body>
-<div class="container h-100">
+<div class="container">
   <div class="modal fade" id="modalSubKriteria" tabindex="-1" aria-labelledby="modalSubKriteriaLabel"
        aria-hidden="true">
     <div class="modal-content modal-md animate">
@@ -117,6 +117,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
               <thead>
               <tr class="">
                 <th scope="col" style="width: 20px;">No</th>
+                <th scope="col">Kriteria</th>
                 <th scope="col">Sub Kriteria</th>
                 <th scope="col">Skala Nilai</th>
                 <th scope="col" style="width: 300px;">Action</th>
@@ -126,6 +127,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
               <?php foreach ($sub_kriteria as $item => $value) : ?>
                 <tr class="">
                   <td class=""><?= $value['id'] ?></td>
+                  <td class=""><?= $value['nama_kriteria'] ?></td>
                   <td class=""><?= $value['nama_sub_kriteria'] ?></td>
                   <td class=""><?= $value['skala_nilai'] ?></td>
                   <td class="">

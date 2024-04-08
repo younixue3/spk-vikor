@@ -39,7 +39,7 @@ $kriteria = $stmt->fetch(PDO::FETCH_ASSOC);
     <link rel="stylesheet" type="text/css" href="../asset/css/main.css"/>
 </head>
 <body>
-<div class="container h-100">
+<div class="container">
     <?php include '../components/layout/banner.php' ?>
     <main>
         <?php include '../components/layout/header.php' ?>

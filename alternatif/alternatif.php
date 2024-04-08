@@ -23,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $lastalternatif = $stmt_last->fetch(PDO::FETCH_ASSOC);
     $nama_alternatif = $_POST["nama_alternatif"];
     $lastkode = "A:nama_alternatif";
-    $kode = "A".(add_leading_zero($lastalternatif['id'] ? $lastalternatif['id'] + 1 : 0));
+    $kode = "A".(add_leading_zero($lastalternatif['id'] ? $lastalternatif['id'] + 1 : 1));
 
     $sql = "INSERT INTO alternatif (nama_alternatif, kode) VALUES (:nama_alternatif, :kode)";
     $stmt = $conn->prepare($sql);
@@ -49,7 +49,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   <link rel="stylesheet" type="text/css" href="../asset/css/main.css"/>
 </head>
 <body>
-<div class="container h-100">
+<div class="container">
   <div class="modal fade" id="modalAlternatif" tabindex="-1" aria-labelledby="modalAlternatifLabel"
        aria-hidden="true">
     <div class="modal-content modal-md animate">

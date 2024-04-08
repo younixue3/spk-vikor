@@ -39,7 +39,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   <link rel="stylesheet" type="text/css" href="../asset/css/main.css"/>
 </head>
 <body>
-<div class="container h-100">
+<div class="container">
   <div class="modal fade" id="modalKriteria" tabindex="-1" aria-labelledby="modalKriteriaLabel"
        aria-hidden="true">
     <div class="modal-content modal-md animate">

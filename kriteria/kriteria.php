@@ -11,13 +11,24 @@ $stmt->execute();
 $kriteria = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 
+function add_leading_zero($value, $threshold = 1) {
+    return sprintf('%0' . $threshold . 's', $value);
+}
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $sql_last = "SELECT * FROM kriteria ORDER BY id DESC limit 1";
+    $stmt_last = $conn->query($sql_last);
+    $stmt_last->execute();
+    $lastkriteria = $stmt_last->fetch(PDO::FETCH_ASSOC);
+    $kode = "C".(add_leading_zero($lastkriteria['id'] ? $lastkriteria['id'] + 1 : 1));
+
     $nama_kriteria = $_POST["nama_kriteria"];
     $bobot = $_POST["bobot"];
 
-    $sql = "INSERT INTO kriteria (nama_kriteria, bobot) VALUES (:nama_kriteria, :bobot)";
+    $sql = "INSERT INTO kriteria (nama_kriteria, bobot, kode_kriteria) VALUES (:nama_kriteria, :bobot, :kode_kriteria)";
     $stmt = $conn->prepare($sql);
     $stmt->bindParam(":nama_kriteria", $nama_kriteria);
+    $stmt->bindParam(":kode_kriteria", $kode);
     $stmt->bindParam(":bobot", $bobot);
 
     if ($stmt->execute()) {
@@ -101,6 +112,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
               <thead>
               <tr class="">
                 <th scope="col" style="width: 20px;">No</th>
+                <th scope="col" style="width: 20px;">Kode</th>
                 <th scope="col">Kriteria</th>
                 <th scope="col">Bobot</th>
                 <th scope="col" style="width: 300px;">Action</th>
@@ -110,6 +122,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
               <?php foreach ($kriteria as $item => $value) : ?>
                 <tr class="">
                   <td class=""><?= $value['id'] ?></td>
+                  <td class=""><?= $value['kode_kriteria'] ?></td>
                   <td class=""><?= $value['nama_kriteria'] ?></td>
                   <td class=""><?= $value['bobot'] ?></td>
                   <td class="">

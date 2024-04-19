@@ -7,6 +7,7 @@ html {
 
 body {
   font-family: Arial, Helvetica, sans-serif;
+  background-color: #eeeeee;
   margin: 0;
 }
 
@@ -243,6 +244,27 @@ input {
   font-size: 1.5rem;
 }
 
+.text-start {
+  text-align: start;
+}
+
+.text-end {
+  text-align: end;
+}
+
+.header li  {
+  padding: .5rem 1rem;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.header li:hover  {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+.header {
+  padding-inline-start: 0 !important;
+}
+
 .text-center {
   text-align: center;
 }
@@ -259,6 +281,12 @@ main {
   position: relative;
 }
 
+footer {
+  background-color: #1a202c;
+  color: #cbd5e0;
+  padding: 20px 0;
+}
+
 .h-100 {
   height: 100vh;
 }
@@ -266,7 +294,6 @@ main {
 /* Sidebar */
 .sidebar {
   width: 200px;
-  background-color: #d2d2d2;
   padding: 10px;
 }
 
@@ -278,19 +305,27 @@ main {
   margin-bottom: 10px;
 }
 
-.sidebar a {
+a {
   text-decoration: none;
   color: #333;
-}
-
-.sidebar a:hover {
-  color: #000;
 }
 
 /* Content */
 .content {
   flex: 1;
   padding: 10px;
+}
+
+.overflow {
+  overflow: auto;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.overflow-y-scroll {
+  overflow-y: scroll;
 }
 
 .bg-primary {
@@ -307,7 +342,6 @@ main {
 
 .bg-danger {
   background-color: #ff3c1f !important;
-  color: white;
 }
 
 .bg-indigo {
@@ -332,6 +366,10 @@ main {
   margin-bottom: 10px;
   padding-bottom: 10px;
   border-bottom: 1px solid #000000;
+}
+
+.border {
+  border: solid 0.5px #b2b2b2;
 }
 
 .badge {

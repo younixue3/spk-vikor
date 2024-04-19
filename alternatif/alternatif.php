@@ -22,7 +22,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt_last->execute();
     $lastalternatif = $stmt_last->fetch(PDO::FETCH_ASSOC);
     $nama_alternatif = $_POST["nama_alternatif"];
-    $lastkode = "A:nama_alternatif";
     $kode = "A".(add_leading_zero($lastalternatif['id'] ? $lastalternatif['id'] + 1 : 1));
 
     $sql = "INSERT INTO alternatif (nama_alternatif, kode) VALUES (:nama_alternatif, :kode)";
